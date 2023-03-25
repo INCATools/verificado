@@ -1,0 +1,57 @@
+s,slabel,user_olabel,user_slabel,o,olabel
+FBbt:00051054,adult descending neuron to esophagus,endocrine,DNES1,FBbt:00007436,endocrine neuron
+FBbt:00051054,adult descending neuron to esophagus,endocrine,DNES2,FBbt:00007436,endocrine neuron
+FBbt:00003881,lobula-lobula plate columnar neuron LLPC,optic_lobes,LLPC3,FBbt:00003702,adult optic lobe neuron
+FBbt:00051054,adult descending neuron to esophagus,endocrine,DNES3,FBbt:00007436,endocrine neuron
+FBbt:00110183,antennal mechanosensory and motor center A1 projection neuron,AMMC,AMMC-A1,FBbt:00111352,intrinsic antennal mechanosensory and motor center neuron
+FBbt:00047661,descending neuron of the posterior brain DNp28,ocellar,DNp28,FBbt:00049818,ocellar interneuron
+FBbt:00111336,adult thermosensory neuron Ir21a VP1l,hygrosensory,HRN_VP1l,FBbt:00005923,hygrosensory neuron
+FBbt:00067034,adult olfactory receptor neuron Or69a,olfactory,ORN_D,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067031,adult olfactory receptor neuron Or67d,olfactory,ORN_DA1,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067063,adult olfactory receptor neuron Or56a,olfactory,ORN_DA2,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067033,adult olfactory receptor neuron Or23a,olfactory,ORN_DA3,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067048,adult olfactory receptor neuron Or43a,olfactory,ORN_DA4l,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067001,adult olfactory receptor neuron Or2a,olfactory,ORN_DA4m,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067018,adult olfactory receptor neuron Or19,olfactory,ORN_DC1,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067016,adult olfactory receptor neuron Or13a,olfactory,ORN_DC2,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067047,adult olfactory receptor neuron Or83c,olfactory,ORN_DC3,FBbt:00051299,adult olfactory projection neuron
+FBbt:00111210,adult olfactory receptor neuron Ir64a DC4,olfactory,ORN_DC4,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067013,adult olfactory receptor neuron Or10a,olfactory,ORN_DL1,FBbt:00051299,adult olfactory projection neuron
+FBbt:00110016,adult olfactory receptor neuron Ir75b,olfactory,ORN_DL2d,FBbt:00051299,adult olfactory projection neuron
+FBbt:00051495,adult olfactory receptor neuron Ir75c,olfactory,ORN_DL2v,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067011,adult olfactory receptor neuron Or65,olfactory,ORN_DL3,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067055,adult olfactory receptor neuron Or49a/85f,olfactory,ORN_DL4,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067005,adult olfactory receptor neuron Or7a,olfactory,ORN_DL5,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067046,adult olfactory receptor neuron Or42b,olfactory,ORN_DM1,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067025,adult olfactory receptor neuron Or22,olfactory,ORN_DM2,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067054,adult olfactory receptor neuron Or47a,olfactory,ORN_DM3,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067003,adult olfactory receptor neuron Or59b,olfactory,ORN_DM4,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067049,adult olfactory receptor neuron Or85a,olfactory,ORN_DM5,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067020,adult olfactory receptor neuron Or67a,olfactory,ORN_DM6,FBbt:00051299,adult olfactory projection neuron
+FBbt:00110013,adult olfactory receptor neuron Ir75a,olfactory,ORN_DP1l,FBbt:00051299,adult olfactory projection neuron
+FBbt:00111212,adult olfactory receptor neuron Ir64a DP1m,olfactory,ORN_DP1m,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067064,adult olfactory receptor neuron Gr21a/63a,olfactory,ORN_V,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067057,adult olfactory receptor neuron Or88a,olfactory,ORN_VA1d,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067056,adult olfactory receptor neuron Or47b,olfactory,ORN_VA1v,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067059,adult olfactory receptor neuron Or92a,olfactory,ORN_VA2,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067023,adult olfactory receptor neuron Or67b,olfactory,ORN_VA3,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067051,adult olfactory receptor neuron Or85d,olfactory,ORN_VA4,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067061,adult olfactory receptor neuron Or49b,olfactory,ORN_VA5,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067044,adult olfactory receptor neuron Or82a,olfactory,ORN_VA6,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067052,adult olfactory receptor neuron Or46a,olfactory,ORN_VA7l,FBbt:00051299,adult olfactory projection neuron
+FBbt:00048139,adult sensory neuron VA7m,olfactory,ORN_VA7m,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067036,adult olfactory receptor neuron Or33c/85e,olfactory,ORN_VC1,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067041,adult olfactory receptor neuron Or71a,olfactory,ORN_VC2,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067027,adult olfactory receptor neuron Or67c,olfactory,ORN_VC4,FBbt:00051299,adult olfactory projection neuron
+FBbt:00047054,adult olfactory receptor neuron Ir75d,olfactory,ORN_VL1,FBbt:00051299,adult olfactory projection neuron
+FBbt:00110007,adult olfactory receptor neuron Ir84a,olfactory,ORN_VL2a,FBbt:00051299,adult olfactory projection neuron
+FBbt:00110010,adult olfactory receptor neuron Ir31a,olfactory,ORN_VL2p,FBbt:00051299,adult olfactory projection neuron
+FBbt:00110012,adult olfactory receptor neuron Ir92a,olfactory,ORN_VM1,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067050,adult olfactory receptor neuron Or43b,olfactory,ORN_VM2,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067009,adult olfactory receptor neuron Or9a,olfactory,ORN_VM3,FBbt:00051299,adult olfactory projection neuron
+FBbt:00110018,adult olfactory receptor neuron Ir76a,olfactory,ORN_VM4,FBbt:00051299,adult olfactory projection neuron
+FBbt:00007389,adult olfactory receptor neuron Or85b/98b,olfactory,ORN_VM5d,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067062,adult olfactory receptor neuron Or98a,olfactory,ORN_VM5v,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067042,adult olfactory receptor neuron Or42a,olfactory,ORN_VM7d,FBbt:00051299,adult olfactory projection neuron
+FBbt:00067007,adult olfactory receptor neuron Or59c,olfactory,ORN_VM7v,FBbt:00051299,adult olfactory projection neuron
+FBbt:00049660,adult hygrosensory neuron Ir68a VP1m,thermosensory,TRN_VP1m,FBbt:00005918,thermosensory neuron

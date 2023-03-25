@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "relation-validator"
+version = "0.1.0"
+description = "This package validates a list of relationships between two terms against the specified ontologies."
+authors = ["Anita Caron <anitacaron@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "relation_validator", from="src/validation"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+oaklib = "0.1.73"
+pyaml = "^21.10.1"
+click = "^8.1.3"
+ruamel-yaml = "^0.17.21"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
