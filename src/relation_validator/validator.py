@@ -1,11 +1,8 @@
-import argparse
-import pathlib
 import pandas as pd
 
 from oaklib.implementations.ubergraph import UbergraphImplementation
 
-from utils import get_config, verify_relationship, split_terms
-
+from .utils.utils import get_config, verify_relationship, split_terms
 
 def query_ubergraph(query, prefixes):
   oi = UbergraphImplementation()
@@ -23,7 +20,7 @@ def get_pairs(data):
 def get_prefixes(data):
   return [ont["id"] for ont in data]
   
-def main(config, filename):
+def validate(config, filename):
   config = get_config(config)
   data = pd.read_csv(config["pairs_filename"])
   terms_pairs = get_pairs(data)
@@ -38,10 +35,3 @@ def main(config, filename):
   
   rows_nv.to_csv(filename, index=False)
 
-if __name__ == "__main__":
-  parser = argparse.ArgumentParser()
-  parser.add_argument('-i', '--input', type=pathlib.Path, required=True, help="yaml file with config")
-  parser.add_argument('-o', '--output', type=pathlib.Path, required=True, help="output filename")
-
-  args = parser.parse_args()
-  main(str(args.input), str(args.output))
