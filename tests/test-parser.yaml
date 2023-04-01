@@ -1,14 +1,7 @@
-ontologies:
-  - id: UBERON
-  - id: CL
-  - id: RO
-  - id: FBbt
-  - id: BFO
-
 relationships:
   sub_class_of: rdfs:subClassOf
   part_of: BFO:0000050
   connected_to: RO:0001025
   has_soma_location: RO:0002100
 
-pairs_filename: tests/review_file.csv
+filename: tests/review_file.csv

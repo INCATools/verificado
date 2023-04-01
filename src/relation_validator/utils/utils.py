@@ -2,12 +2,28 @@ import os
 import logging
 from ruamel.yaml import YAML, YAMLError
 
+from oaklib.implementations.ubergraph import UbergraphImplementation
+
 QUERY = """
    VALUES (?subject ?object) {{
       {pairs}
     }}
     ?subject {property} ?object .
 """
+
+def query_ubergraph(query):
+  oi = UbergraphImplementation()
+  prefixes = get_prefixes(query, oi.prefix_map().keys())
+  
+  res = oi.query(query=query, prefixes=prefixes)
+  
+  return [r for r in res]
+
+def get_pairs(data):
+  pairs = set()
+  for _, row in data.iterrows():
+    pairs.add(f"({row['s']} {row['o']})")
+  return pairs
 
 def chunks(lst, n):
   for i in range(0, len(lst), n):
@@ -35,13 +51,13 @@ def extract_results(list):
   return set((r["subject"], r["object"]) for r in list)
 
 
-def verify_relationship(query_ubergraph, prefixes, terms_pairs, relationship):
+def verify_relationship(terms_pairs, relationship):
   valid_relationship = set()
   if len(terms_pairs) > 90:
     for chunk in chunks(list(terms_pairs), 90):
-      valid_relationship = valid_relationship.union(extract_results(query_ubergraph(QUERY.format(pairs=" ".join(chunk), property=relationship), prefixes)))
+      valid_relationship = valid_relationship.union(extract_results(query_ubergraph(QUERY.format(pairs=" ".join(chunk), property=relationship))))
   else:
-    valid_relationship = extract_results(query_ubergraph(QUERY.format(pairs=" ".join(list(terms_pairs)), property=relationship), prefixes))
+    valid_relationship = extract_results(query_ubergraph(QUERY.format(pairs=" ".join(list(terms_pairs)), property=relationship)))
   
   non_valid_relationship = terms_pairs - transform_to_str(valid_relationship)
 
@@ -61,4 +77,11 @@ def get_config(input) -> dict:
   else:
     logging.error("Given path has unsupported file extension.")
     return False
-  
+
+def get_prefixes(text, prefix_map):
+  prefixes = []
+  for prefix in prefix_map:
+    if prefix in text:
+      prefixes.append(prefix)
+
+  return prefixes
