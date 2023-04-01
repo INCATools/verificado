@@ -1,6 +1,13 @@
 import pandas as pd
+import json
 
-from .utils.utils import get_config, verify_relationship, split_terms, get_pairs
+from .utils.utils import (
+    get_config, 
+    verify_relationship, 
+    split_terms, 
+    get_pairs,
+    get_ontologies_version
+)
 
 def validate(config, filename):
   config = get_config(config)
@@ -16,3 +23,7 @@ def validate(config, filename):
   
   rows_nv.to_csv(filename, index=False)
 
+def ontologies_version(filename):
+  ont_version = get_ontologies_version()
+  with open(filename, 'w', encoding='utf-8') as f:
+    json.dump(ont_version, f, ensure_ascii=False, indent=2)

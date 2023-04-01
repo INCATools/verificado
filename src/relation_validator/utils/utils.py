@@ -85,3 +85,12 @@ def get_prefixes(text, prefix_map):
       prefixes.append(prefix)
 
   return prefixes
+
+def get_ontologies_version():
+  QUERY_VERSION = """
+    ?ontology a owl:Ontology .
+    OPTIONAL { ?ontology owl:versionIRI ?version . }
+  """
+  
+  response = query_ubergraph(QUERY_VERSION)
+  return response
