@@ -1,8 +1,8 @@
 # Relationship validator
 
-Validation process using [Ubergraph](https://zenodo.org/record/7249759#.ZDRuZOzML1c) as source of truth.
+Validate ontology relationships using [Ubergraph](https://zenodo.org/record/7249759#.ZDRuZOzML1c) as source of truth. Relationships in this context may be subClassOf axioms between names classes (e.g. 'lymphocyte' subClassOf 'cell') or existential restrictions, (e.g. 'enterocyte' part_of some ‘intestinal epithelium’).
 
-Ubergraph is an RDF triplestore with [39 OBO ontologies](https://github.com/INCATools/ubergraph#integrated-obo-ontology-triplestore) merged, precomputed OWL classification and materialized class relationship from existential properties restriction.
+Ubergraph is an RDF triplestore with [39 OBO ontologies](https://github.com/INCATools/ubergraph#integrated-obo-ontology-triplestore) merged, precomputed OWL classification and materialised class relationship from existential property restrictions.  Validation therefore works for any directly asserted or inferred/indirect subClassOf relationship or existential restriction.
 
 
 ## Install
