@@ -17,16 +17,16 @@ def main():
         help="Validates the pairs using the relationships in the input file"
     )
     parser_validate.add_argument(
-        name_or_flags="-i",
-        name_or_flags="--input",
+        "-i",
+        "--input",
         action="store",
         type=pathlib.Path,
         required=True,
         help="yaml file with config"
     )
     parser_validate.add_argument(
-        name_or_flags="-o",
-        name_or_flags="--output",
+        "-o",
+        "--output",
         action="store",
         type=pathlib.Path,
         required=True,
@@ -39,8 +39,8 @@ def main():
         help="Ontologies' version available in Ubergraph"
     )
     parser_ont_versions.add_argument(
-        name_or_flags="-o",
-        name_or_flags="--output",
+        "-o",
+        "--output",
         action="store",
         type=pathlib.Path,
         required=True,

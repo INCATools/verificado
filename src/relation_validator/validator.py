@@ -1,13 +1,9 @@
-import pandas as pd
 import json
 
-from .utils.utils import (
-    get_config,
-    verify_relationship,
-    split_terms,
-    get_pairs,
-    get_ontologies_version
-)
+import pandas as pd
+
+from .utils.utils import (get_config, get_ontologies_version, get_pairs,
+                          split_terms, verify_relationship)
 
 
 def validate(config, filename):
