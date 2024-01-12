@@ -34,5 +34,5 @@ def ontologies_version(args):
     Get ontologies' version
     """
     ont_version = get_ontologies_version()
-    with open(args.output, 'w', encoding='utf-8') as f:
+    with open(args.output, "w", encoding="utf-8") as f:
         json.dump(ont_version, f, ensure_ascii=False, indent=2)

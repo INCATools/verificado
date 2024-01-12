@@ -10,7 +10,7 @@ from .validator import ontologies_version, validate
 def main():
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(
-        help='Available relation-validator actions',
+        help="Available relation-validator actions",
     )
 
     parser_validate = subparsers.add_parser(

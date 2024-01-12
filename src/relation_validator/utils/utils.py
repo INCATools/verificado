@@ -116,12 +116,12 @@ def get_config(entry) -> dict:
     """
     Parse config file
     """
-    if entry.suffix not in ('.yaml' or '.yml'):
+    if entry.suffix not in (".yaml" or ".yml"):
         logging.error("Given path has unsupported file extension.")
         return {}
 
     config = os.path.abspath(entry)
-    ryaml = YAML(typ='safe')
+    ryaml = YAML(typ="safe")
     with open(config, "r", encoding="utf-8") as f:
         try:
             config = ryaml.load(f)
