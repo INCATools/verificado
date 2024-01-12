@@ -1,3 +1,6 @@
+"""
+Command-line application for the lib
+"""
 import argparse
 import pathlib
 
@@ -7,8 +10,7 @@ from .validator import ontologies_version, validate
 def main():
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers(
-        help='Available dosdp actions',
-        dest='action'
+        help="Available relation-validator actions",
     )
 
     parser_validate = subparsers.add_parser(
@@ -19,7 +21,6 @@ def main():
     parser_validate.add_argument(
         "-i",
         "--input",
-        action="store",
         type=pathlib.Path,
         required=True,
         help="yaml file with config"
@@ -27,11 +28,11 @@ def main():
     parser_validate.add_argument(
         "-o",
         "--output",
-        action="store",
         type=pathlib.Path,
         required=True,
         help="csv output filename"
     )
+    parser_validate.set_defaults(func=validate)
 
     parser_ont_versions = subparsers.add_parser(
         name="ontologies_version",
@@ -41,18 +42,14 @@ def main():
     parser_ont_versions.add_argument(
         "-o",
         "--output",
-        action="store",
         type=pathlib.Path,
         required=True,
         help="json output filename"
     )
+    parser_ont_versions.set_defaults(func=ontologies_version)
 
     args = parser.parse_args()
-
-    if args.action == "validate":
-        validate(str(args.input), str(args.output))
-    elif args.action == "ontologies_version":
-        ontologies_version(args.output)
+    args.func(args)
 
 
 if __name__ == "__main__":

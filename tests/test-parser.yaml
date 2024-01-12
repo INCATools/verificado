@@ -4,4 +4,4 @@ relationships:
   connected_to: RO:0001025
   has_soma_location: RO:0002100
 
-filename: tests/review_file.csv
+filename: tests/ref-organ-relations.csv

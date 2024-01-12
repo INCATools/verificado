@@ -12,6 +12,7 @@ QUERY = """
         {pairs}
     }}
     ?subject {property} ?object .
+    # LIMIT
 """
 
 
@@ -115,18 +116,18 @@ def get_config(entry) -> dict:
     """
     Parse config file
     """
-    if entry.endswith('.yaml') or entry.endswith('.yml'):
-        config = os.path.abspath(entry)
-        ryaml = YAML(typ='safe')
-        with open(config, "r", encoding="utf-8") as f:
-            try:
-                config = ryaml.load(f)
-            except YAMLError:
-                logging.info("Failed to load config: %s", config)
-        return config
+    if entry.suffix not in (".yaml" or ".yml"):
+        logging.error("Given path has unsupported file extension.")
+        return {}
 
-    logging.error("Given path has unsupported file extension.")
-    return False
+    config = os.path.abspath(entry)
+    ryaml = YAML(typ="safe")
+    with open(config, "r", encoding="utf-8") as f:
+        try:
+            config = ryaml.load(f)
+        except YAMLError:
+            logging.info("Failed to load config: %s", config)
+    return config
 
 
 def get_prefixes(text, prefix_map):
@@ -148,6 +149,7 @@ def get_ontologies_version():
     QUERY_VERSION = """
         ?ontology a owl:Ontology .
         OPTIONAL { ?ontology owl:versionIRI ?version . }
+        # LIMIT
     """
 
     response = query_ubergraph(QUERY_VERSION)

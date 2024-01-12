@@ -1,0 +1,233 @@
+[
+  {
+    "ontology": "aism/aism-base.owl",
+    "version": "aism/releases/2023-04-14/aism-base.owl"
+  },
+  {
+    "ontology": "bspo.owl",
+    "version": "bspo/releases/2023-05-27/bspo.owl"
+  },
+  {
+    "ontology": "cl/cl-base.owl",
+    "version": "cl/releases/2024-01-04/cl-base.owl"
+  },
+  {
+    "ontology": "cob/cob-base.owl",
+    "version": "cob/releases/2023-05-12/cob-base.owl"
+  },
+  {
+    "ontology": "cob/components/cob-to-external.owl",
+    "version": "cob/releases/2023-05-12/components/cob-to-external.owl"
+  },
+  {
+    "ontology": "colao/colao-base.owl",
+    "version": "colao/releases/2023-04-08/colao-base.owl"
+  },
+  {
+    "ontology": "dpo/dpo-base.owl",
+    "version": "dpo/releases/2023-12-08/dpo-base.owl"
+  },
+  {
+    "ontology": "eco/eco-base.owl",
+    "version": "eco/releases/2023-09-03/eco-base.owl"
+  },
+  {
+    "ontology": "iao.owl",
+    "version": "iao/2022-11-07/iao.owl"
+  },
+  {
+    "ontology": "ecto/ecto-base.owl",
+    "version": "ecto/releases/2023-02-14/ecto-base.owl"
+  },
+  {
+    "ontology": "emapa.owl",
+    "version": "emapa/releases/2023-11-14/emapa.owl"
+  },
+  {
+    "ontology": "envo/envo-base.owl",
+    "version": "envo/releases/2023-02-13/envo-base.owl"
+  },
+  {
+    "ontology": "fbbt/fbbt-base.owl",
+    "version": "fbbt/releases/2023-12-07/fbbt-base.owl"
+  },
+  {
+    "ontology": "fbcv/fbcv-base.owl",
+    "version": "fbcv/releases/2023-12-08/fbcv-base.owl"
+  },
+  {
+    "ontology": "fbdv/fbdv-base.owl",
+    "version": "fbdv/releases/2023-12-07/fbdv-base.owl"
+  },
+  {
+    "ontology": "fypo/fypo-base.owl",
+    "version": "fypo/releases/2023-12-29/fypo-base.owl"
+  },
+  {
+    "ontology": "go/extensions/go-bfo-bridge.owl"
+  },
+  {
+    "ontology": "go/go-base.owl",
+    "version": "go/releases/2023-11-15/go-base.owl"
+  },
+  {
+    "ontology": "hp/hp-base.owl",
+    "version": "hp/releases/2023-10-09/hp-base.owl"
+  },
+  {
+    "ontology": "lepao/lepao-base.owl",
+    "version": "lepao/releases/2023-02-18/lepao-base.owl"
+  },
+  {
+    "ontology": "ma.owl",
+    "version": "ma/releases/2017-02-07/ma.owl"
+  },
+  {
+    "ontology": "maxo/maxo-base.owl",
+    "version": "maxo/releases/2023-12-01/maxo-base.owl"
+  },
+  {
+    "ontology": "mi.owl"
+  },
+  {
+    "ontology": "mmo.owl",
+    "version": "mmo/2.123/mmo.owl"
+  },
+  {
+    "ontology": "mondo/mondo-base.owl",
+    "version": "mondo/releases/2024-01-03/mondo-base.owl"
+  },
+  {
+    "ontology": "ncbitaxon.owl",
+    "version": "ncbitaxon/2023-12-12/ncbitaxon.owl"
+  },
+  {
+    "ontology": "ncit.owl",
+    "version": "ncit/releases/2023-10-19/ncit.owl"
+  },
+  {
+    "ontology": "mp/mp-base.owl",
+    "version": "mp/releases/2023-12-19/mp-base.owl"
+  },
+  {
+    "ontology": "nbo/nbo-base.owl",
+    "version": "nbo/releases/2023-07-04/nbo-base.owl"
+  },
+  {
+    "ontology": "oba/oba-base.owl",
+    "version": "oba/releases/2023-12-07/oba-base.owl"
+  },
+  {
+    "ontology": "obi/obi-base.owl",
+    "version": "obi/2023-09-20/obi-base.owl"
+  },
+  {
+    "ontology": "pato/pato-base.owl",
+    "version": "pato/releases/2023-05-18/pato-base.owl"
+  },
+  {
+    "ontology": "pcl/pcl-base.owl",
+    "version": "pcl/releases/2024-01-04/pcl-base.owl"
+  },
+  {
+    "ontology": "pco/pco-base.owl",
+    "version": "pco/releases/2021-05-03/pco-base.owl"
+  },
+  {
+    "ontology": "ro/ro-base.owl",
+    "version": "ro/releases/2023-08-18/ro-base.owl"
+  },
+  {
+    "ontology": "so.owl",
+    "version": "so/2021-11-22/so.owl"
+  },
+  {
+    "ontology": "uberon/bridge/cl-bridge-to-caro.owl",
+    "version": "uberon/releases/2023-12-08/bridge/cl-bridge-to-caro.owl"
+  },
+  {
+    "ontology": "uberon/bridge/cl-bridge-to-fbbt.owl",
+    "version": "uberon/releases/2023-12-08/bridge/cl-bridge-to-fbbt.owl"
+  },
+  {
+    "ontology": "uberon/bridge/uberon-bridge-to-caro.owl",
+    "version": "uberon/releases/2023-12-08/bridge/uberon-bridge-to-caro.owl"
+  },
+  {
+    "ontology": "uberon/bridge/uberon-bridge-to-fbbt.owl",
+    "version": "uberon/releases/2023-12-08/bridge/uberon-bridge-to-fbbt.owl"
+  },
+  {
+    "ontology": "uberon/uberon-base.owl",
+    "version": "uberon/releases/2023-12-08/uberon-base.owl"
+  },
+  {
+    "ontology": "wbbt/wbbt-base.owl",
+    "version": "wbbt/releases/2024-01-04/wbbt-base.owl"
+  },
+  {
+    "ontology": "wbls/wbls-base.owl",
+    "version": "wbls/releases/2023-09-26/wbls-base.owl"
+  },
+  {
+    "ontology": "wbphenotype/wbphenotype-base.owl",
+    "version": "wbphenotype/releases/2023-09-26/wbphenotype-base.owl"
+  },
+  {
+    "ontology": "zfa/zfa-base.owl",
+    "version": "zfa/releases/2022-12-09/zfa-base.owl"
+  },
+  {
+    "ontology": "https://w3id.org/orcidio/orcidio.owl"
+  },
+  {
+    "ontology": "pr/pr-asserted.owl",
+    "version": "pr/68.0/pr-asserted.owl"
+  },
+  {
+    "ontology": "po.owl",
+    "version": "po/releases/2023-07-13/po.owl"
+  },
+  {
+    "ontology": "https://raw.githubusercontent.com/PlantPhenoOntology/ppo/master/ppo.owl",
+    "version": "https://raw.githubusercontent.com/PlantPhenoOntology/ppo/master/releases/2018-10-26/ppo.owl"
+  },
+  {
+    "ontology": "apo.owl",
+    "version": "apo/releases/2023-12-07/apo.owl"
+  },
+  {
+    "ontology": "mmusdv.owl"
+  },
+  {
+    "ontology": "foodon.owl",
+    "version": "foodon/releases/2023-05-03/foodon.owl"
+  },
+  {
+    "ontology": "to.owl",
+    "version": "to/releases/2023-07-17/to.owl"
+  },
+  {
+    "ontology": "peco.owl",
+    "version": "peco/releases/2023-11-10/peco.owl"
+  },
+  {
+    "ontology": "mro.owl",
+    "version": "mro/2023-12-21/mro.owl"
+  },
+  {
+    "ontology": "hao.owl",
+    "version": "hao/2023-06-01/hao.owl"
+  },
+  {
+    "ontology": "clao.owl",
+    "version": "clao/releases/2021-09-27/clao.owl"
+  },
+  {
+    "ontology": "oarcs.owl",
+    "version": "hao/2019-04-18/hao.owl"
+  },
+  {
+    "ontology": "http://translator.renci.org/ubergraph-axioms.ofn"
+  }
+]
