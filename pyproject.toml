@@ -8,7 +8,7 @@ packages = [{include = "relation_validator", from="src"}]
 repository = "https://github.com/INCATools/relation-validator"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 pyaml = "^21.10.1"
 ruamel-yaml = "^0.17.21"
 oaklib = "^0.5.20"
