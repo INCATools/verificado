@@ -6,11 +6,14 @@ from .utils.utils import (get_config, get_ontologies_version, get_pairs,
                           split_terms, verify_relationship)
 
 
-def validate(config, filename):
+def validate(args):
     """
     Validate process
     """
-    config = get_config(config)
+    config = get_config(args.input)
+    if not config:
+        return exit
+
     data = pd.read_csv(config["filename"])
     terms_pairs = get_pairs(data)
 
@@ -23,13 +26,13 @@ def validate(config, filename):
         data[["s", "o"]].apply(tuple, 1).isin(zip(terms_s, terms_o))
     ]
 
-    rows_nv.to_csv(filename, index=False)
+    rows_nv.to_csv(args.output, index=False)
 
 
-def ontologies_version(filename):
+def ontologies_version(args):
     """
     Get ontologies' version
     """
     ont_version = get_ontologies_version()
-    with open(filename, 'w', encoding='utf-8') as f:
+    with open(args.output, 'w', encoding='utf-8') as f:
         json.dump(ont_version, f, ensure_ascii=False, indent=2)
