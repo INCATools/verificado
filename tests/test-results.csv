@@ -2226,7 +2226,6 @@ http://purl.org/ccf/latest/ccf.owl#VHFUrinaryBladder,http://purl.org/ccf/latest/
 http://purl.org/ccf/latest/ccf.owl#VHFUterus,http://purl.org/ccf/latest/ccf.owl#VHFemaleOrgans_VH_F_body_of_uterus,UBERON:0009853,UBERON:0000002,body of uterus,uterine cervix
 http://purl.org/ccf/latest/ccf.owl#VHFUterus,http://purl.org/ccf/latest/ccf.owl#VHFemaleOrgans_VH_F_internal_cervical_os,UBERON:0013759,UBERON:0000002,internal cervical os,uterine cervix
 http://purl.org/ccf/latest/ccf.owl#VHFUterus,http://purl.org/ccf/latest/ccf.owl#VHFemaleOrgans_VH_F_external_cervical_os,UBERON:0013760,UBERON:0000002,external cervical os,uterine cervix
-http://purl.org/ccf/latest/ccf.owl#VHFPlacenta,http://purl.org/ccf/latest/ccf.owl#VHFPlacenta,UBERON:0001987,UBERON:0004027,Placenta,chorionic plate
 http://purl.org/ccf/latest/ccf.owl#VHFPlacenta,http://purl.org/ccf/latest/ccf.owl#VHFPlacenta,UBERON:0001987,UBERON:0000305,Placenta,amnion
 http://purl.org/ccf/latest/ccf.owl#VHFPlacenta,http://purl.org/ccf/latest/ccf.owl#VHFemaleOrgans_VH_F_chorionic_plate,UBERON:0004027,UBERON:0000305,chorionic plate,amnion
 http://purl.org/ccf/latest/ccf.owl#VHFPlacenta,http://purl.org/ccf/latest/ccf.owl#VHFemaleOrgans_VH_F_amnion,UBERON:0000305,UBERON:0004027,amnion,chorionic plate
