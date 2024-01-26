@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "relation-validator"
-version = "0.3.0"
+version = "0.3.1"
 description = "This package validates a list of relationships between two terms against the specified ontologies."
 authors = ["Anita Caron <anitac@ebi.ac.uk>"]
 readme = "README.md"
