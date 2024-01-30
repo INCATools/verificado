@@ -1,9 +1,11 @@
 import json
 
 import pandas as pd
+from oaklib.datamodels.obograph import Graph
 
-from .utils.utils import (get_config, get_ontologies_version, get_pairs,
-                          split_terms, verify_relationship)
+from .utils.utils import (get_config, get_obograph, get_ontologies_version,
+                          get_pairs, save_obograph, split_terms,
+                          verify_relationship)
 
 
 def run_validation(data: pd.DataFrame, relationships: dict) -> pd.DataFrame:
@@ -11,9 +13,11 @@ def run_validation(data: pd.DataFrame, relationships: dict) -> pd.DataFrame:
     Validation process for each relationship
     """
     terms_pairs = get_pairs(data)
-
+    all_valid = {}
     for _, rel in relationships.items():
-        _, terms_pairs = verify_relationship(terms_pairs, rel)
+        valid_terms, terms_pairs = verify_relationship(terms_pairs, rel)
+        if valid_terms:
+            all_valid[rel] = valid_terms
 
     terms_s, terms_o = split_terms(terms_pairs)
 
@@ -21,6 +25,11 @@ def run_validation(data: pd.DataFrame, relationships: dict) -> pd.DataFrame:
         data[["s", "o"]].apply(tuple, 1).isin(zip(terms_s, terms_o))
     ]
 
+    graph = Graph
+    for rel, terms in all_valid.items():
+        graph = get_obograph(terms, rel)
+
+    save_obograph(graph, "tests/obograph.png", "style/graph-style.json")
     return rows_nv
 
 

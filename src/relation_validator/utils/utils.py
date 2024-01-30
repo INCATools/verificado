@@ -3,8 +3,12 @@ Script with util function used in validator
 """
 import logging
 import os
+from typing import List
 
+from oaklib.datamodels import obograph
 from oaklib.implementations.ubergraph import UbergraphImplementation
+from oaklib.io.obograph_writer import write_graph
+from oaklib.utilities.obograph_utils import graph_as_dict, graph_to_image
 from ruamel.yaml import YAML, YAMLError
 
 QUERY = """
@@ -46,7 +50,7 @@ def chunks(lst, n):
         yield lst[i:i + n]
 
 
-def transform_to_str(entry: list):
+def transform_to_str(entry: List[set]) -> set:
     """
     Transform the pairs in the list into string in the format "(s, o)"
     """
@@ -58,7 +62,7 @@ def transform_to_str(entry: list):
     return terms_pairs
 
 
-def split_terms(entry: list) -> (list, list):
+def split_terms(entry: List[str]) -> (List[str], List[str]):
     """
     Return s and o terms
     """
@@ -70,44 +74,35 @@ def split_terms(entry: list) -> (list, list):
         terms_s.append(s[1:])
         terms_o.append(o[:-1])
 
-    return terms_s, terms_o
+    return (terms_s, terms_o)
 
 
-def extract_results(entry: list):
+def extract_results(entry: List[dict]) -> set:
     """
     Extract values subject and object from result
     """
     return set((r["subject"], r["object"]) for r in entry)
 
 
-def verify_relationship(terms_pairs, relationship):
+def verify_relationship(terms_pairs: List[str], relationship: str) -> (set, set):
     """
     Query Ubergraph with term pairs and relationship.
     Return valid and not valid pairs.
     """
     valid_relationship = set()
-    if len(terms_pairs) > 90:
-        for chunk in chunks(list(terms_pairs), 90):
-            valid_relationship = valid_relationship.union(
-                extract_results(
-                    query_ubergraph(
-                        QUERY.format(
-                            pairs=" ".join(chunk), property=relationship
-                        )
+
+    for chunk in chunks(list(terms_pairs), 90):
+        valid_relationship = valid_relationship.union(
+            extract_results(
+                query_ubergraph(
+                    QUERY.format(
+                        pairs=" ".join(chunk), property=relationship
                     )
-                )
-            )
-    else:
-        valid_relationship = extract_results(
-            query_ubergraph(
-                QUERY.format(
-                    pairs=" ".join(list(terms_pairs)),
-                    property=relationship
                 )
             )
         )
 
-    non_valid_relationship = terms_pairs - transform_to_str(valid_relationship)
+    non_valid_relationship = set(terms_pairs - transform_to_str(valid_relationship))
 
     return valid_relationship, non_valid_relationship
 
@@ -154,3 +149,23 @@ def get_ontologies_version():
 
     response = query_ubergraph(QUERY_VERSION)
     return response
+
+
+def get_obograph(terms, relationship) -> obograph.Graph:
+    """
+    Get Obograph version
+    """
+    edges = []
+    nodes = {}
+    for sub, obj in terms:
+        edges.append(obograph.Edge(sub=sub, pred=relationship, obj=obj))
+        nodes[sub] = obograph.Node(id=sub)
+        nodes[obj] = obograph.Node(id=obj)
+
+    return obograph.Graph(id="valid", nodes=list(nodes.values()), edges=edges)
+
+
+def save_obograph(graph, output, stylegraph):
+    g = {"graphs": [graph_as_dict(graph)]}
+    write_graph(graph=g, format="json", output="tests/placenta.json")
+    graph_to_image(graph=graph, imgfile=output, stylemap=stylegraph)
