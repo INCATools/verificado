@@ -3,13 +3,15 @@ Script with util function used in validator
 """
 import logging
 import os
-from typing import List
+from pathlib import Path
+from typing import Dict, List, Set, Tuple, Optional
 
-from oaklib.datamodels import obograph
+from oaklib.datamodels.obograph import Edge, Graph, Node
 from oaklib.implementations.ubergraph import UbergraphImplementation
-from oaklib.io.obograph_writer import write_graph
-from oaklib.utilities.obograph_utils import graph_as_dict, graph_to_image
+from oaklib.utilities.obograph_utils import graph_to_image
 from ruamel.yaml import YAML, YAMLError
+
+from relation_validator import conf as conf_package
 
 QUERY = """
     VALUES (?subject ?object) {{
@@ -18,6 +20,8 @@ QUERY = """
     ?subject {property} ?object .
     # LIMIT
 """
+
+DEFAULT_STYLE = "obograph-style.json"
 
 
 def query_ubergraph(query):
@@ -151,21 +155,39 @@ def get_ontologies_version():
     return response
 
 
-def get_obograph(terms, relationship) -> obograph.Graph:
+def get_obograph(rel_terms: Dict[str, List[str]]) -> Graph:
     """
-    Get Obograph version
+    Transform graph into OBOGgraph
     """
     edges = []
     nodes = {}
-    for sub, obj in terms:
-        edges.append(obograph.Edge(sub=sub, pred=relationship, obj=obj))
-        nodes[sub] = obograph.Node(id=sub)
-        nodes[obj] = obograph.Node(id=obj)
 
-    return obograph.Graph(id="valid", nodes=list(nodes.values()), edges=edges)
+    for rel, terms in rel_terms.items():
+        print(rel, terms)
+        for sub, obj in terms:
+            edges.append(Edge(sub=sub, pred=rel, obj=obj))
+            nodes[sub] = Node(id=sub)
+            nodes[obj] = Node(id=obj)
+
+    return Graph(id="valid", nodes=list(nodes.values()), edges=edges)
 
 
-def save_obograph(graph, output, stylegraph):
-    g = {"graphs": [graph_as_dict(graph)]}
-    write_graph(graph=g, format="json", output="tests/placenta.json")
+def save_obograph(graph: Graph, output: Path, stylegraph: Optional[str] = None):
+    """
+    Save OBOGraph in image
+    """
+    if stylegraph is None:
+        conf_path = os.path.dirname(conf_package.__file__)
+        stylegraph = str(Path(conf_path) / DEFAULT_STYLE)
     graph_to_image(graph=graph, imgfile=output, stylemap=stylegraph)
+
+
+def to_set(term_pairs: Set[str]) -> Set[Tuple[str, str]]:
+    """
+    Transform set of strings into set of tuples
+    """
+    res = set()
+    for pair in term_pairs:
+        term_s, term_o = split_terms([pair])
+        res.add((term_s[0], term_o[0]))
+    return res

@@ -1,0 +1,152 @@
+{
+    "includeIdInLabel": "true",
+    "styles": [
+        "filled",
+        "rounded"
+    ],
+    "fillcolor": "cornsilk",
+
+    "excludeSingletons": "true",
+    "relationProperties": {
+        "rdfs:subClassOf": {
+            "color": "azure4",
+            "label": "rdfs:subClassOf"
+        },
+        "BFO:0000050": {
+            "color": "dodgerblue3",
+            "label": "part_of"
+        },
+        "RO:0002170": {
+            "color": "dodgerblue4",
+            "label": "connected_to"
+        },
+        "RO:0002131": {
+            "color": "cadetblue",
+            "label": "overlaps"
+        },
+        "RO:0002202": {
+            "color": "aquamarine2",
+            "label": "develops_from"
+        },
+        "RO:0001025": {
+            "color": "aquamarine3",         
+            "label": "located_in"
+        },
+        "RO:0002221": {
+            "color": "cyan4",
+            "label": "surrounds"
+        },
+        "RO:0002220": {
+            "color": "gray",
+            "label": "adjacent_to"
+        },
+        "RO:0002176": {
+            "color": "dodgerblue1",
+            "label": "connects"
+        },     
+        "not_matched": {
+            "color": "red"
+        }
+    },
+    "conditionalProperties": [
+        {
+            "conditions": {
+                "type": "INSTANCE"
+            },
+            "properties": {
+                "style": "filled,square",
+                "fillcolor": "green"
+            }
+        },
+        {
+            "conditions": {
+                "subset": "path"
+            },
+            "properties": {
+                "style": "filled,square",
+                "arrowhead": "diamond",
+                "penwidth": "3",
+                "fillcolor": "green"
+            }
+        }
+    ],
+    "displayAnnotations": [
+        "wgs84:lat", "wgs84:long", "sosa:hasSimpleResult"
+    ],
+    "prefixProperties": {
+        "UPHENO": {
+            "fillcolor": "black",
+            "fontcolor": "white"
+        },
+        "MP": {
+            "fillcolor": "pink"
+        },
+        "HP": {
+            "fillcolor": "mediumturquoise"
+        },
+        "UBERON": {
+            "fillcolor": "yellow"
+        },
+        "CL": {
+            "fillcolor": "azure2"
+        },
+        "OBI": {
+            "fillcolor": "burlywood1"
+        },
+        "GO": {
+            "fillcolor": "pink"
+        },
+        "MBA": {
+            "fillcolor": "hotpink"
+        },
+        "HBA": {
+            "fillcolor": "lightgrey"
+        },
+        "ZFA": {
+            "fillcolor": "black",
+            "fontcolor": "white"
+        },
+        "FBdv": {
+            "fillcolor": "mediumturquoise"
+        },
+        "PR": {
+            "fillcolor": "mediumturquoise"
+        },
+        "RO": {
+            "fillcolor": "pink"
+        },
+        "PATO": {
+            "fillcolor": "pink"
+        },
+        "ENVO": {
+            "fillcolor": "cyan"
+        },
+        "CHEBI": {
+            "fillcolor": "cyan"
+        },
+        "NCBITaxon": {
+            "fillcolor": "burlywood1"
+        },
+        "FOODON": {
+            "fillcolor": "pink"
+        },
+        "sweet:realm/": {
+            "fillcolor": "pink"
+        },
+        "ENM": {
+            "fillcolor": "cornsilk"
+        },
+        "STATO": {
+            "fillcolor": "cornsilk"
+        },
+        "IAO": {
+            "fillcolor": "mediumturquoise"
+        },
+        "BFO": {
+            "fillcolor": "cyan"
+        }
+    },
+    "cliqueRelations": [
+        "equivalent_to", "same_as", "xref"
+    ]
+}

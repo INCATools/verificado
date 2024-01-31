@@ -1,23 +1,27 @@
+"""
+Validator script
+"""
 import json
 
 import pandas as pd
-from oaklib.datamodels.obograph import Graph
 
 from .utils.utils import (get_config, get_obograph, get_ontologies_version,
-                          get_pairs, save_obograph, split_terms,
+                          get_pairs, save_obograph, split_terms, to_set,
                           verify_relationship)
 
 
-def run_validation(data: pd.DataFrame, relationships: dict) -> pd.DataFrame:
+def run_validation(data: pd.DataFrame, relationships: dict) -> (pd.DataFrame, dict):
     """
     Validation process for each relationship
     """
     terms_pairs = get_pairs(data)
-    all_valid = {}
+    rel_terms = {}
     for _, rel in relationships.items():
         valid_terms, terms_pairs = verify_relationship(terms_pairs, rel)
         if valid_terms:
-            all_valid[rel] = valid_terms
+            rel_terms[rel] = valid_terms
+
+    rel_terms["not_matched"] = to_set(terms_pairs)
 
     terms_s, terms_o = split_terms(terms_pairs)
 
@@ -25,12 +29,7 @@ def run_validation(data: pd.DataFrame, relationships: dict) -> pd.DataFrame:
         data[["s", "o"]].apply(tuple, 1).isin(zip(terms_s, terms_o))
     ]
 
-    graph = Graph
-    for rel, terms in all_valid.items():
-        graph = get_obograph(terms, rel)
-
-    save_obograph(graph, "tests/obograph.png", "style/graph-style.json")
-    return rows_nv
+    return rows_nv, rel_terms
 
 
 def validate(args):
@@ -43,9 +42,11 @@ def validate(args):
 
     data = pd.read_csv(config["filename"])
 
-    report = run_validation(data, config["relationships"])
+    report, rel_terms = run_validation(data, config["relationships"])
 
     report.to_csv(args.output, index=False)
+    graph = get_obograph(rel_terms=rel_terms)
+    save_obograph(graph, f"{args.output}.png")
 
 
 def ontologies_version(args):
