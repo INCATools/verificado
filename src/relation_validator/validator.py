@@ -2,15 +2,20 @@
 Validator script
 """
 import json
+import os
+from typing import Dict, List, Tuple
 
 import pandas as pd
 
-from .utils.utils import (get_config, get_obograph, get_ontologies_version,
-                          get_pairs, save_obograph, split_terms, to_set,
-                          verify_relationship)
+from .utils.utils import (get_config, get_labels, get_obograph,
+                          get_ontologies_version, get_pairs, save_obograph,
+                          split_terms, to_set, verify_relationship)
 
 
-def run_validation(data: pd.DataFrame, relationships: dict) -> (pd.DataFrame, dict):
+def run_validation(
+    data: pd.DataFrame,
+    relationships: dict
+) -> (pd.DataFrame, Dict[str, List[Tuple[str, str]]]):
     """
     Validation process for each relationship
     """
@@ -42,11 +47,16 @@ def validate(args):
 
     data = pd.read_csv(config["filename"])
 
+    temp_filename, _ = os.path.splitext(config["filename"])
+
     report, rel_terms = run_validation(data, config["relationships"])
 
     report.to_csv(args.output, index=False)
-    graph = get_obograph(rel_terms=rel_terms)
-    save_obograph(graph, f"{args.output}.png")
+
+    labels = get_labels(data)
+    graph = get_obograph(rel_terms, labels)
+    save_obograph(graph, f"{temp_filename}.png")
+    return True
 
 
 def ontologies_version(args):

@@ -4,11 +4,12 @@ Script with util function used in validator
 import logging
 import os
 from pathlib import Path
-from typing import Dict, List, Set, Tuple, Optional
+from typing import Dict, List, Optional, Set, Tuple
 
 from oaklib.datamodels.obograph import Edge, Graph, Node
 from oaklib.implementations.ubergraph import UbergraphImplementation
 from oaklib.utilities.obograph_utils import graph_to_image
+from pandas import DataFrame
 from ruamel.yaml import YAML, YAMLError
 
 from relation_validator import conf as conf_package
@@ -88,7 +89,10 @@ def extract_results(entry: List[dict]) -> set:
     return set((r["subject"], r["object"]) for r in entry)
 
 
-def verify_relationship(terms_pairs: List[str], relationship: str) -> (set, set):
+def verify_relationship(
+    terms_pairs: List[str],
+    relationship: str
+) -> (set, set):
     """
     Query Ubergraph with term pairs and relationship.
     Return valid and not valid pairs.
@@ -106,7 +110,9 @@ def verify_relationship(terms_pairs: List[str], relationship: str) -> (set, set)
             )
         )
 
-    non_valid_relationship = set(terms_pairs - transform_to_str(valid_relationship))
+    non_valid_relationship = set(
+        terms_pairs - transform_to_str(valid_relationship)
+    )
 
     return valid_relationship, non_valid_relationship
 
@@ -155,7 +161,10 @@ def get_ontologies_version():
     return response
 
 
-def get_obograph(rel_terms: Dict[str, List[str]]) -> Graph:
+def get_obograph(
+    rel_terms: Dict[str, List[Tuple[str, str]]],
+    labels: Dict[str, str]
+) -> Graph:
     """
     Transform graph into OBOGgraph
     """
@@ -163,16 +172,19 @@ def get_obograph(rel_terms: Dict[str, List[str]]) -> Graph:
     nodes = {}
 
     for rel, terms in rel_terms.items():
-        print(rel, terms)
         for sub, obj in terms:
             edges.append(Edge(sub=sub, pred=rel, obj=obj))
-            nodes[sub] = Node(id=sub)
-            nodes[obj] = Node(id=obj)
+            nodes[sub] = Node(id=sub, lbl=labels[sub])
+            nodes[obj] = Node(id=obj, lbl=labels[obj])
 
     return Graph(id="valid", nodes=list(nodes.values()), edges=edges)
 
 
-def save_obograph(graph: Graph, output: Path, stylegraph: Optional[str] = None):
+def save_obograph(
+    graph: Graph,
+    output: Path,
+    stylegraph: Optional[str] = None
+):
     """
     Save OBOGraph in image
     """
@@ -191,3 +203,17 @@ def to_set(term_pairs: Set[str]) -> Set[Tuple[str, str]]:
         term_s, term_o = split_terms([pair])
         res.add((term_s[0], term_o[0]))
     return res
+
+
+def get_labels(data: DataFrame) -> Dict[str, str]:
+    """
+    Get labels from terms in table
+    """
+    labels = {}
+    for _, row in data.iterrows():
+        if row["s"] not in labels:
+            labels[row["s"]] = row["slabel"]
+        if row["o"] not in labels:
+            labels[row["o"]] = row["olabel"]
+
+    return labels
