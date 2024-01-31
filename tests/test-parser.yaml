@@ -1,7 +1,7 @@
 relationships:
   sub_class_of: rdfs:subClassOf
   part_of: BFO:0000050
-  connected_to: RO:0001025
-  has_soma_location: RO:0002100
+  has_part: BFO:0000051
+  # has_soma_location: RO:0002100
 
-filename: tests/ref-organ-relations.csv
+filename: tests/placenta.csv

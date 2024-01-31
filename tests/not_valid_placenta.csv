@@ -1,0 +1,43 @@
+s,slabel,user_slabel,o,olabel,user_olabel
+UBERON:0002331,umbilical cord,umbilical cord,UBERON:0001987,placenta,placenta
+UBERON:0002066,umbilical vein,umbilical vein,UBERON:0002331,umbilical cord,umbilical cord
+CL:0000071,blood vessel endothelial cell,vascular endothelial cell,UBERON:0002066,umbilical vein,umbilical vein
+CL:0000669,pericyte,pericyte,UBERON:0002066,umbilical vein,umbilical vein
+CL:0000359,vascular associated smooth muscle cell,vascular smooth muscle cell,UBERON:0002066,umbilical vein,umbilical vein
+UBERON:0001310,umbilical artery,umbilical arteries,UBERON:0002331,umbilical cord,umbilical cord
+CL:0000071,blood vessel endothelial cell,vascular endothelial cell,UBERON:0001310,umbilical artery,umbilical arteries
+CL:0000669,pericyte,pericyte,UBERON:0001310,umbilical artery,umbilical arteries
+CL:0000359,vascular associated smooth muscle cell,vascular smooth muscle cell,UBERON:0001310,umbilical artery,umbilical arteries
+CL:0008036,extravillous trophoblast,extravillous trophoblast,UBERON:8600019,placental basal plate,basal plate
+UBERON:0000305,amnion,amnion,UBERON:0002331,umbilical cord,umbilical cord
+CL:0002536,epithelial cell of amnion,amnion epithelial cell,UBERON:0003254,amniotic ectoderm,amniotic ectoderm
+CL:2000061,placental amniotic mesenchymal stromal cell,amnion mesenchymal stromal cell,UBERON:0003262,amniotic mesoderm,amniotic mesoderm
+UBERON:0003254,amniotic ectoderm,amniotic ectoderm,UBERON:0004027,chorionic plate,chorionic plate
+UBERON:0003262,amniotic mesoderm,amniotic mesoderm,UBERON:0004027,chorionic plate,chorionic plate
+UBERON:0005630,fetal membrane,fetal membranes,UBERON:0001987,placenta,placenta
+UBERON:0003124,chorion membrane,chorion,UBERON:0005630,fetal membrane,fetal membranes
+CL:0000523,mononuclear cytotrophoblast cell,cytotrophoblast,UBERON:0003124,chorion membrane,chorion
+CL:0008036,extravillous trophoblast,extravillous trophoblast,UBERON:0003124,chorion membrane,chorion
+UBERON:0001295,endometrium,endometrium,UBERON:0005630,fetal membrane,fetal membranes
+CL:0002343,"decidual natural killer cell, human",uterine NK cell,UBERON:0002337,endometrial stroma,endometrial stroma
+CL:0000864,tissue-resident macrophage,tissue-resident macrophage,UBERON:0002337,endometrial stroma,endometrial stroma
+CL:0000815,regulatory T cell,regulatory T cell,UBERON:0002337,endometrial stroma,endometrial stroma
+CL:0000910,cytotoxic T cell,cytotoxic T cell,UBERON:0002337,endometrial stroma,endometrial stroma
+CL:0000236,B cell,B cell,UBERON:0002337,endometrial stroma,endometrial stroma
+CL:0008036,extravillous trophoblast,extravillous trophoblast,UBERON:0015172,endometrial blood vessel,endometrial blood vessel
+CL:0002138,endothelial cell of lymphatic vessel,lymphatic endothelial cell,UBERON:0001295,endometrium,endometrium
+UBERON:0000305,amnion,amnion,UBERON:0005630,fetal membrane,fetal membranes
+CL:0002558,fibroblast of villous mesenchyme,placental stromal cell,UBERON:0004027,chorionic plate,chorionic plate
+CL:0000523,mononuclear cytotrophoblast cell,cytotrophoblast,UBERON:0004027,chorionic plate,chorionic plate
+CL:0000525,syncytiotrophoblast cell,syncytiotrophoblast,UBERON:0004027,chorionic plate,chorionic plate
+CL:0008036,extravillous trophoblast,extravillous trophoblast,UBERON:0004027,chorionic plate,chorionic plate
+CL:0000071,blood vessel endothelial cell,vascular endothelial cell,UBERON:0004027,chorionic plate,chorionic plate
+CL:0008036,extravillous trophoblast,extravillous trophoblast,UBERON:8600020,placental septum,septum
+CL:0000071,blood vessel endothelial cell,vascular endothelial cell,UBERON:8600021,chorionic plate blood vessel,chorionic plate vessel
+CL:0000669,pericyte,pericyte,UBERON:8600021,chorionic plate blood vessel,chorionic plate vessel
+CL:0000359,vascular associated smooth muscle cell,vascular smooth muscle cell,UBERON:8600021,chorionic plate blood vessel,chorionic plate vessel
+UBERON:0001295,endometrium,endometrium,UBERON:8600019,placental basal plate,basal plate
+CL:0000071,blood vessel endothelial cell,vascular endothelial cell,UBERON:0022358,placenta blood vessel,placental blood vessel
+CL:0000669,pericyte,pericyte,UBERON:0022358,placenta blood vessel,placental blood vessel
+CL:0000359,vascular associated smooth muscle cell,vascular smooth muscle cell,UBERON:0022358,placenta blood vessel,placental blood vessel
+UBERON:0001295,endometrium,endometrium,UBERON:8600020,placental septum,septum
