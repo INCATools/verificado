@@ -8,6 +8,37 @@ Ubergraph is an RDF triplestore with [39 OBO ontologies](https://github.com/INCA
 
 ## Install
 
+### Dependencies
+
+This package depends on [Graphviz](https://graphviz.org/) and [OBOGraphviz](https://www.npmjs.com/package/obographviz) to represent the validation as a graph.
+
+#### Graphviz
+
+On macOS:
+
+```bash
+brew install graphviz
+```
+
+On Linux:
+
+```bash
+apt install graphviz
+```
+
+For another platform, please follow this instruction to [install Graphviz](https://graphviz.org/download/).
+
+#### OBOGraphviz
+
+Before installing OBOGraphviz, make sure you have installed Node.js version >= 14.16. Please follow this instructions to [install Node and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
+
+Then install the `obographviz` package globally:
+
+```bash
+npm install -g obographviz
+```
+
+### `relation-validator` package
 ```bash
 pip install relation-validator
 ```
