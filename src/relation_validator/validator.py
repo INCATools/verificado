@@ -2,14 +2,13 @@
 Validator script
 """
 import json
-import os
 from typing import Dict, List, Tuple
 
 import pandas as pd
 
 from .utils.utils import (get_config, get_labels, get_obograph,
                           get_ontologies_version, get_pairs, save_obograph,
-                          split_terms, to_set, verify_relationship)
+                          split_terms, to_set, tsv_or_csv, verify_relationship)
 
 
 def run_validation(
@@ -45,13 +44,16 @@ def validate(args):
     if not config:
         return exit
 
-    data = pd.read_csv(config["filename"])
+    filename = config["filename"]
+    temp_filename, sep = tsv_or_csv(filename)
 
-    temp_filename, _ = os.path.splitext(config["filename"])
+    data = pd.read_csv(filename, sep=sep)
 
     report, rel_terms = run_validation(data, config["relationships"])
 
-    report.to_csv(args.output, index=False)
+    output_filename = args.output
+    _, sep = tsv_or_csv(output_filename)
+    report.to_csv(output_filename, sep=sep, index=False)
 
     labels = get_labels(data)
     graph = get_obograph(rel_terms, labels)

@@ -60,11 +60,13 @@ relationships:
 filename: path/to/filename.csv
 ```
 
-The filename should have the following columns:
+The filename can be in TSV or CSV and should have the following columns:
 
 | s                   | slabel                                | user_slabel                               | o                  | olabel                                | user_olabel                               |
 |---------------------|---------------------------------------|-------------------------------------------|--------------------|---------------------------------------|-------------------------------------------|
 | the subject term ID | the label of the term in the column s | optional label for the term given by user | the object term ID | the label of the term in the column s | optional label for the term given by user |
+
+When using CSV, double-quote if the label contains a common.
 
 ## Run relation-validator CLI
 
