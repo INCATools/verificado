@@ -217,3 +217,17 @@ def get_labels(data: DataFrame) -> Dict[str, str]:
             labels[row["o"]] = row["olabel"]
 
     return labels
+
+
+def tsv_or_csv(filename: Path) -> tuple[str, str]:
+    """
+    Extract file extension to give proper sep for loading TSV or CSV table
+    """
+    temp_filename, extension = os.path.splitext(filename)
+
+    # DEFAULT TO CSV
+    sep = ","
+    if "tsv" in extension:
+        sep = "\t"
+
+    return temp_filename, sep
