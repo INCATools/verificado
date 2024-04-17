@@ -56,7 +56,7 @@ def validate(args):
     report.to_csv(output_filename, sep=sep, index=False)
 
     labels = get_labels(data)
-    graph = get_obograph(rel_terms, labels)
+    graph = get_obograph(rel_terms, labels, config["relationships"])
     save_obograph(graph, f"{temp_filename}.png")
     return True
 

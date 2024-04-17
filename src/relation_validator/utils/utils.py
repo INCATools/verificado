@@ -163,19 +163,23 @@ def get_ontologies_version():
 
 def get_obograph(
     rel_terms: Dict[str, List[Tuple[str, str]]],
-    labels: Dict[str, str]
+    labels: Dict[str, str],
+    properties: Dict[str, str]
 ) -> Graph:
     """
     Transform graph into OBOGgraph
     """
     edges = []
     nodes = {}
+    properties_ = {v: k for k, v in properties.items()}
 
     for rel, terms in rel_terms.items():
         for sub, obj in terms:
             edges.append(Edge(sub=sub, pred=rel, obj=obj))
             nodes[sub] = Node(id=sub, lbl=labels[sub])
             nodes[obj] = Node(id=obj, lbl=labels[obj])
+            if "not_matched" not in rel:
+                nodes[rel] = Node(id=rel, lbl=properties_[rel])
 
     return Graph(id="valid", nodes=list(nodes.values()), edges=edges)
 
