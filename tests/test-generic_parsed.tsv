@@ -1,0 +1,5 @@
+s	slabel	user_slabel	o	olabel	user_olabel
+UBERON:0001890		Forebrain	UBERON:0000955		Brain
+UBERON:0001894		Diencephalon	UBERON:0001890		Forebrain
+UBERON:0001900		Subthalamus	UBERON:0001894		Diencephalon
+UBERON:0001898		Hypothalamus	UBERON:0001894		Diencephalon
