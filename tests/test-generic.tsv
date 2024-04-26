@@ -1,0 +1,4 @@
+Organ_Level_1 ID	Organ_Level_1	Anatomical_Level_2 ID	Anatomical_Level_2	Anatomical_Level_3 ID	Anatomical_Level_3	Anatomical_Level_4 ID	Anatomical_Level_4
+UBERON:0000955	Brain	UBERON:0001890	Forebrain	UBERON:0001894	Diencephalon	UBERON:0001900	Prethalamus
+UBERON:0000955	Brain	UBERON:0001890	Forebrain	UBERON:0001894	Diencephalon	UBERON:0001898	Hypothalamus
+UBERON:0000955	Brain	UBERON:0001890	Forebrain	UBERON:0001894	Diencephalon	UBERON:0001900	Subthalamus

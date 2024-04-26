@@ -4,4 +4,5 @@ relationships:
   has_part: BFO:0000051
   # has_soma_location: RO:0002100
 
-filename: tests/placenta.csv
+filename: tests/test-generic.tsv
+to_be_parsed: true

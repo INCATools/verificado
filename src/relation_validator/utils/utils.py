@@ -22,6 +22,14 @@ QUERY = """
     # LIMIT
 """
 
+QUERY_LABEL = """
+    VALUES (?subject) {{
+        {terms}
+    }}
+    ?subject rdfs:label ?object .
+    # LIMIT
+"""
+
 DEFAULT_STYLE = "obograph-style.json"
 
 
@@ -211,14 +219,25 @@ def to_set(term_pairs: Set[str]) -> Set[Tuple[str, str]]:
 
 def get_labels(data: DataFrame) -> Dict[str, str]:
     """
-    Get labels from terms in table
+    Get labels from terms in table or search for missing labels in Ubergraph
     """
     labels = {}
+    terms = set()
     for _, row in data.iterrows():
         if row["s"] not in labels:
-            labels[row["s"]] = row["slabel"]
+            if row["slabel"] != "":
+                labels[row["s"]] = row["slabel"]
+            else:
+                terms.add(f"({row['s']})")
         if row["o"] not in labels:
-            labels[row["o"]] = row["olabel"]
+            if row["olabel"] != "":
+                labels[row["o"]] = row["olabel"]
+            else:
+                terms.add(f"({row['o']})")
+
+    ont_labels = search_labels(terms)
+    for term, label in ont_labels:
+        labels[term] = label
 
     return labels
 
@@ -234,4 +253,60 @@ def tsv_or_csv(filename: Path) -> tuple[str, str]:
     if "tsv" in extension:
         sep = "\t"
 
-    return temp_filename, sep
+    return temp_filename, sep, extension
+
+
+def save_tsv_or_csv(data: DataFrame, filename: str):
+    """
+    Save DataFrame with file proprer TSV or CSV extension
+    """
+    if str(filename).endswith(".csv"):
+        sep = ','
+    elif str(filename).endswith(".tsv"):
+        sep = '\t'
+    else:
+        raise ValueError("Unsupported file extension. Please provide a .csv or .tsv file.")
+    data.to_csv(filename, sep=sep, index=False)
+
+
+def parse_table(data: DataFrame) -> DataFrame:
+    """
+    Parse generic tree table to pairs table
+    """
+    terms = {}
+    # Generate dict with terms and label
+    for _, row in data.iterrows():
+        for term_id, label in chunks(data.columns, 2):
+            terms[row.loc[term_id]] = row.loc[label]
+
+    table_parsed = []
+    for _, row in data.filter(regex=".*ID").iterrows():
+        for current, next in zip(row, row[1:]):
+            r = {}
+            r['s'] = next
+            r['slabel'] = ""
+            r['user_slabel'] = terms[next]
+            r['o'] = current
+            r['olabel'] = ""
+            r['user_olabel'] = terms[current]
+            table_parsed.append(r)
+
+    return DataFrame.from_records(table_parsed).drop_duplicates()
+
+
+def search_labels(terms: set) -> set:
+    """
+    Search label for terms in Ubergraph
+    """
+    result = set()
+    for chunk in chunks(list(terms), 90):
+        result = result.union(
+            extract_results(
+                query_ubergraph(
+                    QUERY_LABEL.format(
+                        terms=" ".join(chunk)
+                    )
+                )
+            )
+        )
+    return result

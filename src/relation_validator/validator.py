@@ -7,8 +7,9 @@ from typing import Dict, List, Tuple
 import pandas as pd
 
 from .utils.utils import (get_config, get_labels, get_obograph,
-                          get_ontologies_version, get_pairs, save_obograph,
-                          split_terms, to_set, tsv_or_csv, verify_relationship)
+                          get_ontologies_version, get_pairs, parse_table,
+                          save_obograph, save_tsv_or_csv, split_terms, to_set,
+                          tsv_or_csv, verify_relationship)
 
 
 def run_validation(
@@ -45,15 +46,17 @@ def validate(args):
         return exit
 
     filename = config["filename"]
-    temp_filename, sep = tsv_or_csv(filename)
+    temp_filename, sep, ext = tsv_or_csv(filename)
 
     data = pd.read_csv(filename, sep=sep)
+    if config["to_be_parsed"]:
+        data = parse_table(data)
+        save_tsv_or_csv(data, f"{temp_filename}_parsed{ext}")
 
     report, rel_terms = run_validation(data, config["relationships"])
 
     output_filename = args.output
-    _, sep = tsv_or_csv(output_filename)
-    report.to_csv(output_filename, sep=sep, index=False)
+    save_tsv_or_csv(report, output_filename)
 
     labels = get_labels(data)
     graph = get_obograph(rel_terms, labels, config["relationships"])
