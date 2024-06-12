@@ -12,7 +12,7 @@ from oaklib.utilities.obograph_utils import graph_to_image
 from pandas import DataFrame
 from ruamel.yaml import YAML, YAMLError
 
-from relation_validator import conf as conf_package
+from verificado import conf as conf_package
 
 QUERY = """
     VALUES (?subject ?object) {{

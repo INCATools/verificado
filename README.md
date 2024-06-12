@@ -1,4 +1,4 @@
-# Relationship validator [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10557435.svg)](https://doi.org/10.5281/zenodo.10557435)
+# Verificado [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10557435.svg)](https://doi.org/10.5281/zenodo.10557435)
 
 
 Validate ontology relationships using [Ubergraph](https://zenodo.org/record/7249759#.ZDRuZOzML1c) as source of truth. Relationships in this context may be subClassOf axioms between names classes (e.g. 'lymphocyte' subClassOf 'cell') or existential restrictions, (e.g. 'enterocyte' part_of some ‘intestinal epithelium’).
@@ -38,9 +38,9 @@ Then install the `obographviz` package globally:
 npm install -g obographviz
 ```
 
-### `relation-validator` package
+### `verificado` package
 ```bash
-pip install relation-validator
+pip install verificado
 ```
 
 ## Configure YAML file
@@ -60,18 +60,32 @@ relationships:
 filename: path/to/filename.csv
 ```
 
-The filename can be in TSV or CSV and should have the following columns:
+The filename can be in TSV or CSV. When using CSV, double-quote if the label contains a common. It's preferred to have the following columns:
 
 | s                   | slabel                                | user_slabel                               | o                  | olabel                                | user_olabel                               |
 |---------------------|---------------------------------------|-------------------------------------------|--------------------|---------------------------------------|-------------------------------------------|
 | the subject term ID | the label of the term in the column s | optional label for the term given by user | the object term ID | the label of the term in the column s | optional label for the term given by user |
 
-When using CSV, double-quote if the label contains a common.
+However, the package can also accept TSV or CSV files representing a hierarchy. You can specify an undetermined number of levels, each level defined with an ontology term ID and the label of the term. Please check [an example](tests/test-generic.tsv) in the tests directory.
 
-## Run relation-validator CLI
+Add `to_be_parsed: true` to the yaml file when using this type of file.
+
+```yaml
+relationships:
+  sub_class_of: rdfs:subClassOf
+  part_of: BFO:0000050
+  connected_to: RO:0001025
+  has_soma_location: RO:0002100
+  ...
+
+filename: path/to/filename.csv
+to_be_parsed: true
+```
+
+## Run verificado CLI
 
 ```bash
-relation-validator validate --input path/to/config.yaml --output path/to/output.csv
+verificado validate --input path/to/config.yaml --output path/to/output.csv
 ```
 
 The `output.csv` file will be in the same format as the `filename.csv`. It will return the cases where a triple (subject, relationship, object) with the relationships listed in the yaml file was not found in Ubergraph.
@@ -81,5 +95,5 @@ The `output.csv` file will be in the same format as the `filename.csv`. It will 
 To know which ontologies and their version are available in Ubergraph, use the following CLI:
 
 ```bash
-relation-validator ontologies_version --output filename.json
+verificado ontologies_version --output filename.json
 ```
