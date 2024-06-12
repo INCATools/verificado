@@ -43,7 +43,7 @@
         "RO:0002176": {
             "color": "dodgerblue1",
             "label": "connects"
-        },     
+        },
         "not_matched": {
             "color": "red"
         }
