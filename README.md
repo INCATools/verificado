@@ -1,5 +1,4 @@
-# Verificado [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10557435.svg)](https://doi.org/10.5281/zenodo.10557435)
-
+# Verificado [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10557434.svg)](https://doi.org/10.5281/zenodo.10557434)
 
 Validate ontology relationships using [Ubergraph](https://zenodo.org/record/7249759#.ZDRuZOzML1c) as source of truth. Relationships in this context may be subClassOf axioms between names classes (e.g. 'lymphocyte' subClassOf 'cell') or existential restrictions, (e.g. 'enterocyte' part_of some ‘intestinal epithelium’).
 
